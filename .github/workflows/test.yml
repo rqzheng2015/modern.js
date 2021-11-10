@@ -18,7 +18,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        node-version: [14.x, 16.x]
+        node-version: [14.x]
         os: [macos-latest] # ubuntu-latest, debian-latest, windows-latest
     env:
       CHANGED_SINCE: true # only run test on previously commit files
