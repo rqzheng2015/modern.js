@@ -51,18 +51,14 @@ export const MonorepoValueMap: Record<string, string[]> = {
 export const getMWACases = (length?: number) => {
   const cases = make(MWAValueMap, {
     length: length || Object.keys(MWAValueMap).length,
-    postFilter: (row: Record<string, any>) => {
-      if (
+    postFilter: (row: Record<string, any>) =>
+      !(
         row.needModifyMWAConfig === BooleanConfig.NO &&
         (row.disableStateManagement !== BooleanConfig.NO ||
           row.clientRoute !== ClientRoute.SelfControlRoute ||
           row.enableLess !== BooleanConfig.NO ||
           row.enableSass !== BooleanConfig.NO)
-      ) {
-        return false;
-      }
-      return true;
-    },
+      ),
   });
   return cases.map(item => ({
     ...item,

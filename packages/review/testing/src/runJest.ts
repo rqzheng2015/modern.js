@@ -36,6 +36,14 @@ const buildArgv = async (
     result[key] = (argv as any)[key];
   });
 
+  // CHANGED_SINCE: <boolean>, enable only run test on previously commit files.
+  // MAIN_BRANCH: <string>, specify which branch to diff when running tests.
+  // ref: https://jestjs.io/docs/cli#--changedsince
+  const { CHANGED_SINCE, MAIN_BRANCH } = process.env;
+  if (CHANGED_SINCE && MAIN_BRANCH) {
+    result.changedSince = MAIN_BRANCH;
+  }
+
   if (config) {
     result.config = JSON.stringify(config);
   }

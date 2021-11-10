@@ -20,7 +20,9 @@ jobs:
       matrix:
         node-version: [14.x, 16.x]
         os: [macos-latest] # ubuntu-latest, debian-latest, windows-latest
-
+    env:
+      CHANGED_SINCE: true # only run test on previously commit files
+      MAIN_BRANCH: origin/main  # specify which branch to diff when running tests
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: Setup Node.js ${{ matrix.node-version }}
@@ -38,4 +40,4 @@ jobs:
         run: pnpm run prepare --filter ./packages
 
       - name: Test
-        run: pnpm run test
+        run: cd packages/generator/generator-cases && pnpm run test
