@@ -36,4 +36,4 @@ jobs:
           ref: main
 
       - name: Detect git branch
-        run:  git diff --name-only origin/main...HEAD
+        run:  git diff --name-only origin/aaa...HEAD
