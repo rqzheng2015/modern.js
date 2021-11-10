@@ -32,12 +32,14 @@ jobs:
 
       - name: Check out
         uses: actions/checkout@v2
+        with:
+          ref: main
 
-      - name: Fetch origin main branch
-        run: |
-            git fetch --no-tags --depth=1 origin main
-            git checkout -b main
-            git checkout ${{ github.event.pull_request.head.sha }}
+#      - name: Fetch origin main branch
+#        run: |
+#            git fetch --no-tags --depth=1 origin main
+#            git checkout -b main
+#            git checkout ${{ github.event.pull_request.head.sha }}
 
       - name: Init
         run: npm install -g pnpm rimraf && pnpm run setup
