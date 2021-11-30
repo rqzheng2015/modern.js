@@ -215,6 +215,12 @@ export const PLUGIN_SCHEMAS = {
       schema: { type: ['boolean', 'object'] },
     },
   ],
+  '@jupiter/plugin-tea': [
+    {
+      target: 'runtime.tea',
+      schema: { type: ['boolean', 'object'] },
+    },
+  ],
   '@modern-js/plugin-testing': [
     {
       target: 'testing',

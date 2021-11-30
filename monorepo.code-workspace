@@ -1,6 +1,10 @@
 {
   "folders": [
     {
+      "name": "plugin-tea",
+      "path": "packages/cli/plugin-tea/"
+    },
+    {
       "name": "cli/indenpend-host-plugin",
       "path": "packages/cli/indenpend-host-plugin/"
     },
